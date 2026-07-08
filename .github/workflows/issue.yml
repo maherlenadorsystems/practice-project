@@ -5,5 +5,5 @@ jobs:
   Issue_Metadata:
     runs-on: ubuntu-latest
     steps:
-      - name: Print Issue Metadata
-        run: echo ${{ toJson(github.event) }}
+      - name: Output event details
+        run: echo "${{ toJson(github.event) }}"
