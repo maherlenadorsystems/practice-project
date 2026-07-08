@@ -1,0 +1,9 @@
+name: Issue Workflow
+on: issues
+
+jobs:
+  Issue_Metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Issue Metadata
+        run: echo ${{ github.event_name }}
