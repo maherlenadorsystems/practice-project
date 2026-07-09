@@ -27,7 +27,7 @@ jobs:
         run: npm test
 
   Build:
-    needs: [Lint, Test]
+    needs: Test
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
@@ -36,5 +36,13 @@ jobs:
       - name: Download Dependencies
         run: npm ci
 
-      - name: Run Test Command
-        run: npm test
+      - name: Run Build Command
+        run: npm run build
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-files
+          path: |
+            dist
+            package.json
